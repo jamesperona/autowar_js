@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: 'Oswald';
 }
 
 .App-logo {
@@ -7,16 +8,68 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #0e2e1a;
+  min-height: 10vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-evenly;
+  font-size: calc(10px + 4vmin);
   color: white;
 }
 
-.App-link {
-  color: #09d3ac;
+.App-title {
+  background-color: #0e2e1a;
+  display: flex;
+  width: 75vw;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 4vmin);
+  color: white;
+}
+
+.Hand-table {
+  background-color: #325740;
+  min-height: 15vh;
+  display: flex;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  padding: 1vmin;
+}
+
+.Main-table {
+  background-color: #17492a;
+  min-height: 71vh;
+  display: flex;
+  flex-direction: column;
+  font-size: calc(10px + 2vmin);
+  padding: 1vmin;
+}
+
+.Sub-table {
+  display: flex;
+  padding: 1vmin;
+}
+
+.Hand-text {
+  font-family: 'Oswald';
+  padding-right: 1vmin;
+  color: white;
+}
+
+.Start-button {
+  height: 5vmin;
+  width: 10vmin;
+  border-radius: 1vmin;
+  border: solid 0.4vmin black;
+}
+
+.Input-players {
+  border-style: none;
+  background-color: #091a10;  
+  height: 5vh;
+  width: 7vh;
+  color: white;
+  font-size: calc(10px + 4vmin);
+  font-family: 'Oswald';
+  font-weight: 700;
 }

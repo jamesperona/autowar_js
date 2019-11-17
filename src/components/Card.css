@@ -1,0 +1,27 @@
+.cardStyle {
+    width: 10vh;
+    height: 14vh;
+    background-color: #ffffff;
+    border-radius: 1vmin;
+    margin: 0.5vmin;
+}
+
+.cardInfoStructure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5vmin;
+}
+
+.cardSuit {
+    height: 6vh;
+    border: 2px black;
+}
+
+.cardInfo {
+    height: 6vh;
+    font-size: 5vmin;
+    font-weight: 700;
+    font-family: 'Oswald', sans-serif;
+}

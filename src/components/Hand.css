@@ -1,0 +1,22 @@
+.handStyle {
+    width: 10vh;
+    height: 14vh;
+    background-color: #424242;
+    border-style: solid;
+    border-color:  white;  
+    border-radius: 1vmin;
+    margin: 0.5vmin;
+}
+
+.handInfoStructure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%
+}
+
+.handInfo {
+    font-size: 2vmin;
+    color: white;
+}
