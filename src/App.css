@@ -57,12 +57,14 @@
 }
 
 .Start-button {
+  background-color: #0e2e1a;
   height: 5vmin;
   width: 10vmin;
-  border: solid 0.3vmin black;
+  border: solid 0.3vmin #011308;
   font-family: 'Oswald';
   font-weight: 700;
   font-size: 2vmin;
+  color: white;
 
 }
 

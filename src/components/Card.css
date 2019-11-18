@@ -6,6 +6,15 @@
     margin: 0.5vmin;
 }
 
+.cardOuter {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Oswald';
+    color: white;
+    font-size: 2vmin;
+    font-weight: 700;
+}
+
 .faceDown {
     width: 9.3vh;
     height: 13.3vh;

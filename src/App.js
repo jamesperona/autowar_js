@@ -13,7 +13,7 @@ class App extends Component {
 
     playercount : 2,
 
-    sleepTime : 50
+    sleepTime : 200
 
   }
 
@@ -55,7 +55,7 @@ class App extends Component {
                 {
                 arr.map((elem, idx) => {
                   return (
-                    <Card key={idx} inPlay={elem.card.inPlay} glow={elem.card.glow} suit={elem.card.suit} rank={elem.card.rank}/>
+                    <Card key={idx} player={elem.card.player} inPlay={elem.card.inPlay} glow={elem.card.glow} suit={elem.card.suit} rank={elem.card.rank}/>
                   )
                 })
                 }
@@ -167,6 +167,7 @@ class App extends Component {
             if (!(handElem.hand === undefined || handElem.hand.length === 0)) {
               const cardToPush = handElem.hand.pop()
               cardToPush.inPlay = i;
+              cardToPush.player = handElem.player;
               currTable.push({card : cardToPush, player : handElem.player});
             }
           }
@@ -254,6 +255,7 @@ class App extends Component {
 
     currTable.forEach((tableElem, idx) => {
       tableElem.card.glow = 0;
+      tableElem.card.player = winner.player;
     })
 
     shuffle(currTable);

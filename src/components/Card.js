@@ -12,19 +12,25 @@ export default class Card extends Component {
     render() {
         if (this.props.inPlay === 0) {
             return(
-                <div style = {{boxShadow:glowmap[this.props.glow]}} className = "cardStyle">
-                    <div className = "cardInfoStructure">
-                        <img src = {suitmap[this.props.suit]} alt = "suit" className = "cardSuit"/>
+                <div className = "cardOuter">
+                    <div>{this.props.player}</div>
+                    <div style = {{boxShadow:glowmap[this.props.glow]}} className = "cardStyle">
+                        <div className = "cardInfoStructure">
+                            <img src = {suitmap[this.props.suit]} alt = "suit" className = "cardSuit"/>
     
-                        <div style={{color:colormap[this.props.suit]}} className = "cardInfo">
-                            {rankmap[this.props.rank]}
+                            <div style={{color:colormap[this.props.suit]}} className = "cardInfo">
+                                {rankmap[this.props.rank]}
+                            </div>
                         </div>
-                    </div>
+                     </div>
                 </div>
             );
         } else {
             return(
-                <div style = {{boxShadow:glowmap[this.props.glow]}} className = "faceDown"></div>
+                <div className = "cardOuter">
+                    <div>{this.props.player}</div>
+                    <div style = {{boxShadow:glowmap[this.props.glow]}} className = "faceDown"></div>
+                </div>
             );
         }
     }
