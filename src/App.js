@@ -3,7 +3,7 @@ import './App.css';
 import Card from './components/Card.js'
 import Hand from './components/Hand.js'
 
-class App extends React.Component {
+class App extends Component {
   state = {
     /*** An array of objects containing a player number and card count */
     hands : [],
@@ -13,7 +13,7 @@ class App extends React.Component {
 
     playercount : 2,
 
-    sleepTime : 10
+    sleepTime : 50
 
   }
 
@@ -55,7 +55,7 @@ class App extends React.Component {
                 {
                 arr.map((elem, idx) => {
                   return (
-                    <Card key={idx} suit={elem.card.suit} rank={elem.card.rank}/>
+                    <Card key={idx} inPlay={elem.card.inPlay} glow={elem.card.glow} suit={elem.card.suit} rank={elem.card.rank}/>
                   )
                 })
                 }
@@ -99,7 +99,6 @@ class App extends React.Component {
 
   playGame = async () => {
     const {
-      hands,
       playercount
     } = this.state
 
@@ -118,7 +117,7 @@ class App extends React.Component {
 
     for (let i = 1; i < 5; i++) {
       for (let j = 1; j < 14; j++) {
-        deck.push({suit : i, rank : j});
+        deck.push({suit : i, rank : j, glow : 0, inPlay : 0});
       }
     }
 
@@ -146,6 +145,7 @@ class App extends React.Component {
       this.setState({
         hands : newHands
       })
+      // await sleep(this.state.sleepTime)
     }
 
   }
@@ -165,7 +165,9 @@ class App extends React.Component {
         if (elem.player === handElem.player) {
           for (let i = 0; i < stakes; i++) {
             if (!(handElem.hand === undefined || handElem.hand.length === 0)) {
-              currTable.push({card : handElem.hand.pop(), player : handElem.player});
+              const cardToPush = handElem.hand.pop()
+              cardToPush.inPlay = i;
+              currTable.push({card : cardToPush, player : handElem.player});
             }
           }
         }
@@ -176,14 +178,15 @@ class App extends React.Component {
     let tied = [];
 
     currTable.forEach((contestant, idx) => {
-      if (contestant.card.rank > max) {
-        max = contestant.card.rank;
-        tied = [];
-        tied.push(contestant);
-      } else if (contestant.card.rank === max) {
-        tied.push(contestant);
+      if (contestant.card.inPlay === 0) {
+        if (contestant.card.rank > max) {
+          max = contestant.card.rank;
+          tied = [];
+          tied.push(contestant);
+        } else if (contestant.card.rank === max) {
+          tied.push(contestant);
+        }
       }
-
     })
 
     this.setState({
@@ -191,7 +194,7 @@ class App extends React.Component {
       hands
     })
 
-    await sleep(this.state.sleepTime);
+    await sleep(2 * this.state.sleepTime);
 
     let winner = {player : -1, card : {rank: -1, suit : -1}};
 
@@ -208,6 +211,20 @@ class App extends React.Component {
         })
       })
 
+      tied.forEach((tiedElem, idx) => {
+        currTable.forEach((tableElem, idx) => {
+          if (tableElem.player === tiedElem.player) {
+            tableElem.card.glow = 2;
+          }
+        })
+      })
+
+      this.setState({
+        table : [...table.slice(0, table.length), currTable]
+      })
+
+      await sleep(this.state.sleepTime)
+
       if (specialCase) {
         let max = -1;
         tied.forEach((tiePlay, idx) => {
@@ -220,6 +237,24 @@ class App extends React.Component {
         winner = await this.playTurn(tied, 2);
       }
     }
+
+    currTable.forEach((tableElem, idx) => {
+      if (tableElem.player === winner.player) {
+        tableElem.card.glow = 1;
+      } else {
+        tableElem.card.glow = 0;
+      }
+    })
+
+    this.setState({
+      table : [...table.slice(0, table.length), currTable]
+    })
+
+    await sleep(2 * this.state.sleepTime)
+
+    currTable.forEach((tableElem, idx) => {
+      tableElem.card.glow = 0;
+    })
 
     shuffle(currTable);
 

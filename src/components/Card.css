@@ -2,7 +2,17 @@
     width: 10vh;
     height: 14vh;
     background-color: #ffffff;
-    border-radius: 1vmin;
+    border-radius: 1vh;
+    margin: 0.5vmin;
+}
+
+.faceDown {
+    width: 9.3vh;
+    height: 13.3vh;
+    background-color: #7c0d0d;
+    border-radius: 1vh;
+    border-style: solid;
+    border-color: white;
     margin: 0.5vmin;
 }
 
