@@ -20,7 +20,7 @@
 .App-title {
   background-color: #0e2e1a;
   display: flex;
-  width: 75vw;
+  width: 70vw;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 4vmin);
@@ -77,4 +77,28 @@
   font-size: calc(10px + 4vmin);
   font-family: 'Oswald';
   font-weight: 700;
+}
+
+.Input-speed {
+  border-style: none;
+  background-color: #091a10;  
+  height: 4vh;
+  width: 8vh;
+  color: white;
+  font-size: calc(10px + 2vmin);
+  font-family: 'Oswald';
+  font-weight: 700;
+}
+
+.slidecontainer {
+  width: 20vw; /* Width of the outside container */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 8vh;
+}
+
+.speedStyle {
+  font-size: 2vmin;
 }

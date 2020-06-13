@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import Card from './components/Card.js'
-import Hand from './components/Hand.js'
+import Card from './components/Card.js';
+import Hand from './components/Hand.js';
 
 class App extends Component {
   state = {
@@ -13,7 +13,7 @@ class App extends Component {
 
     playercount : 2,
 
-    sleepTime : 200
+    sleepTime : 40
 
   }
 
@@ -22,7 +22,8 @@ class App extends Component {
     const{
       hands,
       table,
-      playercount
+      playercount,
+      sleepTime
     } = this.state
     return (
       <div className="App">
@@ -32,6 +33,10 @@ class App extends Component {
             <b style = {{paddingRight: "1vw"}}>Auto-War with</b>
             <input className="Input-players" onChange={(event) => this.updatePlayers(event)} value={playercount}></input>
             <b style = {{paddingLeft: "1vw"}}>players:</b>
+          </div>
+          <div class="slidecontainer">
+            <div className="speedStyle"> Speed:</div>
+            <input className="Input-speed" onChange={(event) => this.updateSpeed(event)} value={sleepTime}></input>
           </div>
           <button className="Start-button" onClick={() => this.playGame()}> Begin </button>
         </header>
@@ -69,6 +74,21 @@ class App extends Component {
       </div>
     );
   }
+  
+  updateSpeed = (event) => {
+    let {value} = event.target;
+    if (value === "") {
+      this.setState({
+        sleepTime: value
+      })
+      return;
+    }
+    if (value >= 1 && value <= 5000) {
+      this.setState({
+        sleepTime: value
+      })
+    }
+  }
 
   componentDidMount = () => {
     const input = document.querySelector(".Input-players")
@@ -99,8 +119,13 @@ class App extends Component {
 
   playGame = async () => {
     const {
-      playercount
+      playercount,
+      sleepTime
     } = this.state
+
+    if (sleepTime === "") {
+      return;
+    }
 
     await this.setState({
       table : [],
