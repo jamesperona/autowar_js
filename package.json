@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "gh-pages": "^3.0.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-motion": "^0.5.2",
