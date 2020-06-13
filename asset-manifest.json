@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/autowar_js/static/css/main.01a6b8f7.chunk.css",
+    "main.js": "/autowar_js/static/js/main.b82d01f5.chunk.js",
+    "main.js.map": "/autowar_js/static/js/main.b82d01f5.chunk.js.map",
+    "runtime-main.js": "/autowar_js/static/js/runtime-main.9b7748e9.js",
+    "runtime-main.js.map": "/autowar_js/static/js/runtime-main.9b7748e9.js.map",
+    "static/js/2.9857ba26.chunk.js": "/autowar_js/static/js/2.9857ba26.chunk.js",
+    "static/js/2.9857ba26.chunk.js.map": "/autowar_js/static/js/2.9857ba26.chunk.js.map",
+    "index.html": "/autowar_js/index.html",
+    "precache-manifest.70517558833acb604b2031cdc499da32.js": "/autowar_js/precache-manifest.70517558833acb604b2031cdc499da32.js",
+    "service-worker.js": "/autowar_js/service-worker.js",
+    "static/css/main.01a6b8f7.chunk.css.map": "/autowar_js/static/css/main.01a6b8f7.chunk.css.map",
+    "static/js/2.9857ba26.chunk.js.LICENSE": "/autowar_js/static/js/2.9857ba26.chunk.js.LICENSE",
+    "static/media/club.png": "/autowar_js/static/media/club.8163ae6b.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9b7748e9.js",
+    "static/js/2.9857ba26.chunk.js",
+    "static/css/main.01a6b8f7.chunk.css",
+    "static/js/main.b82d01f5.chunk.js"
+  ]
+}
